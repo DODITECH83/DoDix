@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>DoDix – Guarda Gratis | by Adry Doditech</title>
+<meta name="description" content="DoDix by Adry Doditech – Film e anime in streaming diretto, gratuiti e legali. Tutto si guarda qui, senza reindirizzamenti."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#07070f;--surf:#0e0e1b;--surf2:#151523;--bord:#21213a;
+  --acc:#e5383b;--acc2:#ff6464;--gold:#f5c518;--teal:#00d4aa;--blue:#4db8ff;
+  --txt:#ededf8;--muted:#6a6a90;--card:#111120;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--txt);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--acc);border-radius:2px;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:800;height:62px;
+  display:flex;align-items:center;justify-content:space-between;padding:0 4%;
+  background:rgba(7,7,15,.96);backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(229,56,59,.1);}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;}
+.logo-box{width:36px;height:36px;background:linear-gradient(135deg,var(--acc),#8a0000);
+  border-radius:9px;display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue';font-size:20px;color:#fff;box-shadow:0 0 20px rgba(229,56,59,.35);}
+.logo-name{font-family:'Bebas Neue';font-size:27px;letter-spacing:3px;
+  background:linear-gradient(90deg,#fff 40%,var(--acc));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.nav-center{display:flex;gap:22px;list-style:none;}
+.nav-center a{color:var(--muted);text-decoration:none;font-size:.84rem;font-weight:500;
+  transition:color .18s;padding:4px 0;border-bottom:2px solid transparent;}
+.nav-center a:hover{color:var(--txt);}
+.nav-center a.active{color:var(--txt);border-bottom-color:var(--acc);}
+.nav-right{display:flex;align-items:center;gap:10px;}
+
+/* search */
+.sw{position:relative;}
+.sw input{background:var(--surf2);border:1px solid var(--bord);border-radius:8px;
+  padding:7px 12px 7px 36px;color:var(--txt);font-family:'DM Sans';font-size:.82rem;
+  width:190px;outline:none;transition:border-color .2s,width .3s;}
+.sw input:focus{border-color:var(--acc);width:250px;}
+.sw .si{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--muted);pointer-events:none;}
+#sdrop{display:none;position:absolute;top:calc(100% + 7px);right:0;width:400px;
+  background:var(--surf);border:1px solid var(--bord);border-radius:12px;
+  z-index:999;max-height:400px;overflow-y:auto;box-shadow:0 18px 48px rgba(0,0,0,.75);}
+#sdrop.open{display:block;}
+.sd-row{display:flex;align-items:center;gap:11px;padding:11px 15px;cursor:pointer;
+  border-bottom:1px solid var(--bord);transition:background .14s;}
+.sd-row:last-child{border:none;}
+.sd-row:hover{background:rgba(229,56,59,.07);}
+.sd-em{width:40px;height:56px;border-radius:6px;background:var(--surf2);
+  display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0;}
+.sd-inf{flex:1;min-width:0;}
+.sd-ttl{font-size:.83rem;font-weight:600;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sd-sub{font-size:.7rem;color:var(--muted);}
+.sd-src{font-size:.65rem;padding:2px 6px;border-radius:4px;font-weight:800;text-transform:uppercase;flex-shrink:0;}
+.sy{background:rgba(255,30,30,.15);color:#ff5555;}
+.sa{background:rgba(0,200,150,.15);color:var(--teal);}
+.sd-empty{padding:18px;text-align:center;color:var(--muted);font-size:.83rem;}
+
+/* tg button */
+.btg{display:flex;align-items:center;gap:6px;background:linear-gradient(135deg,#229ED9,#0d70a8);
+  color:#fff;text-decoration:none;padding:7px 13px;border-radius:8px;font-size:.79rem;font-weight:700;
+  transition:transform .18s,box-shadow .18s;white-space:nowrap;}
+.btg:hover{transform:translateY(-1px);box-shadow:0 5px 16px rgba(34,158,217,.4);}
+
+/* ── HERO ── */
+.hero{margin-top:62px;position:relative;height:480px;display:flex;align-items:flex-end;overflow:hidden;}
+.hbg{position:absolute;inset:0;
+  background:radial-gradient(ellipse 65% 55% at 62% 38%,rgba(229,56,59,.14) 0%,transparent 68%),
+  radial-gradient(ellipse 40% 40% at 20% 80%,rgba(77,184,255,.06) 0%,transparent 60%),
+  linear-gradient(145deg,#07070f 0%,#140710 45%,#070f17 100%);}
+.hgrid{position:absolute;inset:0;
+  background-image:linear-gradient(rgba(229,56,59,.035) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(229,56,59,.035) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.5) 35%,rgba(0,0,0,.5) 65%,transparent 100%);}
+.hc{position:relative;z-index:2;padding:0 4% 54px;max-width:640px;}
+.hpill{display:inline-flex;align-items:center;gap:5px;background:rgba(0,212,170,.1);
+  border:1px solid rgba(0,212,170,.25);color:var(--teal);padding:4px 11px;border-radius:20px;
+  font-size:.7rem;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:15px;}
+.hero h1{font-family:'Bebas Neue';font-size:clamp(2.8rem,6.5vw,5.2rem);line-height:1.02;letter-spacing:2px;margin-bottom:13px;}
+.hero h1 em{color:var(--acc);font-style:normal;}
+.hero p{font-size:.93rem;color:var(--muted);line-height:1.75;margin-bottom:22px;max-width:460px;}
+.hero p strong{color:var(--txt);}
+.hbtns{display:flex;gap:11px;flex-wrap:wrap;}
+.bprimary{display:inline-flex;align-items:center;gap:7px;background:var(--acc);color:#fff;
+  padding:11px 23px;border-radius:9px;font-weight:700;font-size:.88rem;border:none;cursor:pointer;
+  font-family:'DM Sans';transition:background .2s,transform .18s,box-shadow .18s;}
+.bprimary:hover{background:var(--acc2);transform:translateY(-2px);box-shadow:0 8px 22px rgba(229,56,59,.4);}
+.bsec{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.06);color:var(--txt);
+  padding:11px 23px;border-radius:9px;font-weight:600;font-size:.88rem;border:1px solid var(--bord);
+  cursor:pointer;font-family:'DM Sans';text-decoration:none;transition:background .18s;}
+.bsec:hover{background:rgba(255,255,255,.11);}
+
+/* ── CATEGORY TABS ── */
+.tabs{background:var(--surf);border-bottom:1px solid var(--bord);
+  padding:0 4%;display:flex;gap:0;overflow-x:auto;}
+.tabs::-webkit-scrollbar{display:none;}
+.tab{padding:14px 20px;font-size:.83rem;font-weight:600;color:var(--muted);cursor:pointer;
+  border-bottom:2px solid transparent;white-space:nowrap;transition:color .18s,border-color .18s;user-select:none;}
+.tab:hover{color:var(--txt);}
+.tab.on{color:var(--txt);border-bottom-color:var(--acc);}
+
+/* ── SECTIONS ── */
+.sec{padding:34px 4%;}
+.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;}
+.st{font-family:'Bebas Neue';font-size:1.5rem;letter-spacing:2px;display:flex;align-items:center;gap:9px;}
+.st::before{content:'';width:4px;height:19px;background:var(--acc);border-radius:2px;display:block;}
+.sa-link{color:var(--acc);text-decoration:none;font-size:.78rem;font-weight:700;
+  display:flex;align-items:center;gap:3px;transition:gap .18s;}
+.sa-link:hover{gap:7px;}
+
+/* ── CARDS ── */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:13px;}
+.card{background:var(--card);border-radius:11px;overflow:hidden;cursor:pointer;
+  border:1px solid var(--bord);position:relative;
+  transition:transform .22s,box-shadow .22s,border-color .22s;}
+.card:hover{transform:translateY(-7px) scale(1.025);box-shadow:0 18px 44px rgba(0,0,0,.7);border-color:rgba(229,56,59,.4);}
+.cimg{width:100%;aspect-ratio:2/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;
+  background:linear-gradient(160deg,var(--surf2) 0%,#0d0d20 100%);}
+.cimg .ce{font-size:2.6rem;}
+.cimg .ct{font-size:.62rem;text-transform:uppercase;letter-spacing:.8px;
+  text-align:center;padding:0 8px;color:var(--muted);line-height:1.4;}
+.covr{position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.95) 0%,rgba(0,0,0,.05) 52%,transparent 100%);
+  opacity:0;transition:opacity .22s;display:flex;flex-direction:column;padding:11px;}
+.card:hover .covr{opacity:1;}
+.cplay{width:36px;height:36px;background:var(--acc);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 14px rgba(229,56,59,.55);flex-shrink:0;margin-bottom:auto;align-self:flex-start;margin-top:10px;}
+.covr-bot{margin-top:auto;}
+.covr-ttl{font-size:.79rem;font-weight:700;line-height:1.3;margin-bottom:3px;}
+.covr-meta{font-size:.69rem;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:4px;}
+.cbadge{position:absolute;top:7px;left:7px;z-index:2;
+  padding:2px 6px;border-radius:4px;font-size:.6rem;font-weight:800;text-transform:uppercase;letter-spacing:.4px;}
+.bfree{background:rgba(0,212,170,.18);color:var(--teal);}
+.bita{background:rgba(245,197,24,.18);color:var(--gold);}
+.bsub{background:rgba(77,184,255,.18);color:var(--blue);}
+.csrc{position:absolute;top:7px;right:7px;z-index:2;
+  font-size:.58rem;padding:2px 6px;border-radius:4px;font-weight:800;}
+.cbot{padding:8px 10px;}
+.cb-t{font-size:.77rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:2px;}
+.cb-y{font-size:.67rem;color:var(--muted);}
+
+/* ── PLAYER MODAL ── */
+#pm{display:none;position:fixed;inset:0;z-index:9999;
+  background:rgba(0,0,0,.94);backdrop-filter:blur(12px);
+  align-items:center;justify-content:center;padding:16px;}
+#pm.open{display:flex;}
+.pmbox{background:var(--surf);border:1px solid var(--bord);border-radius:16px;
+  width:100%;max-width:920px;overflow:hidden;animation:popUp .28s ease;position:relative;}
+@keyframes popUp{from{opacity:0;transform:scale(.93) translateY(22px);}to{opacity:1;transform:scale(1) translateY(0);}}
+.pmhd{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--bord);}
+.pmtitle{font-family:'Bebas Neue';font-size:1.45rem;letter-spacing:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:70%;}
+.pmclose{background:var(--surf2);border:1px solid var(--bord);border-radius:7px;
+  width:30px;height:30px;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;color:var(--muted);font-size:1rem;transition:all .18s;flex-shrink:0;}
+.pmclose:hover{color:var(--txt);border-color:var(--acc);}
+.pmscreen{position:relative;width:100%;aspect-ratio:16/9;background:#000;}
+.pmscreen iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
+.pmfoot{padding:14px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.pmtags{display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
+.ptag{padding:3px 9px;border-radius:5px;font-size:.7rem;font-weight:700;}
+.pmtg{display:flex;align-items:center;gap:6px;
+  background:linear-gradient(135deg,#229ED9,#0d70a8);color:#fff;
+  text-decoration:none;padding:7px 14px;border-radius:8px;font-size:.78rem;font-weight:700;transition:transform .18s;}
+.pmtg:hover{transform:translateY(-1px);}
+
+/* ── TG BANNER ── */
+.tgbanner{margin:0 4% 34px;
+  background:linear-gradient(135deg,rgba(34,158,217,.09),rgba(13,112,168,.05));
+  border:1px solid rgba(34,158,217,.2);border-radius:15px;padding:22px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+.tgl{display:flex;align-items:center;gap:14px;}
+.tgico{width:48px;height:48px;background:linear-gradient(135deg,#229ED9,#0d70a8);
+  border-radius:12px;display:flex;align-items:center;justify-content:center;
+  font-size:23px;flex-shrink:0;box-shadow:0 5px 16px rgba(34,158,217,.28);}
+.tgtxt h3{font-size:.97rem;font-weight:700;margin-bottom:3px;}
+.tgtxt p{font-size:.78rem;color:var(--muted);line-height:1.5;}
+.btgbig{display:inline-flex;align-items:center;gap:7px;
+  background:linear-gradient(135deg,#229ED9,#0d70a8);color:#fff;text-decoration:none;
+  padding:10px 20px;border-radius:9px;font-weight:700;font-size:.86rem;
+  transition:transform .18s,box-shadow .18s;white-space:nowrap;flex-shrink:0;}
+.btgbig:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(34,158,217,.38);}
+
+/* ── GENRES ── */
+.ggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(126px,1fr));gap:10px;}
+.gcard{background:var(--surf2);border:1px solid var(--bord);border-radius:10px;
+  padding:15px 11px;text-align:center;cursor:pointer;transition:all .18s;}
+.gcard:hover{border-color:var(--acc);background:rgba(229,56,59,.06);transform:translateY(-3px);}
+.gico{font-size:1.65rem;display:block;margin-bottom:6px;}
+.gnm{font-size:.76rem;font-weight:600;}
+
+/* ── FOOTER ── */
+footer{background:var(--surf);border-top:1px solid var(--bord);padding:40px 4% 24px;margin-top:10px;}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;margin-bottom:32px;}
+.fbp{font-size:.78rem;color:var(--muted);line-height:1.75;margin:10px 0 16px;}
+.fsoc{display:flex;gap:8px;}
+.fsb{width:32px;height:32px;background:var(--surf2);border:1px solid var(--bord);
+  border-radius:7px;display:flex;align-items:center;justify-content:center;
+  text-decoration:none;font-size:.9rem;transition:all .18s;}
+.fsb:hover{border-color:var(--acc);background:rgba(229,56,59,.09);}
+.fc h4{font-size:.72rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:12px;}
+.fc ul{list-style:none;}
+.fc ul li{margin-bottom:8px;}
+.fc ul li a{color:var(--muted);text-decoration:none;font-size:.78rem;transition:color .18s;}
+.fc ul li a:hover{color:var(--txt);}
+.fbot{border-top:1px solid var(--bord);padding-top:20px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.fbot p{font-size:.73rem;color:var(--muted);}
+.fbot a{color:var(--acc);text-decoration:none;}
+.disc{background:rgba(229,56,59,.04);border:1px solid rgba(229,56,59,.1);
+  border-radius:8px;padding:11px 15px;margin-bottom:26px;}
+.disc p{font-size:.71rem;color:var(--muted);line-height:1.6;}
+.disc a{color:var(--acc2);text-decoration:none;}
+
+@media(max-width:820px){.fg{grid-template-columns:1fr 1fr;}.nav-center{display:none;}}
+@media(max-width:600px){
+  .fg{grid-template-columns:1fr;}
+  .hero{height:390px;}
+  .hero h1{font-size:2.7rem;}
+  .grid{grid-template-columns:repeat(auto-fill,minmax(128px,1fr));}
+  .tgbanner{flex-direction:column;text-align:center;}
+  .tgl{flex-direction:column;text-align:center;}
+  .btgbig{width:100%;justify-content:center;}
+  #sdrop{width:calc(100vw - 28px);right:auto;left:0;}
+  .sw input{width:130px;}
+  .sw input:focus{width:155px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo"><div class="logo-box">D</div><span class="logo-name">DoDix</span></a>
+  <ul class="nav-center">
+    <li><a href="#film" class="active">Film</a></li>
+    <li><a href="#anime">Anime</a></li>
+    <li><a href="#classici">Classici</a></li>
+    <li><a href="#documentari">Documentari</a></li>
+    <li><a href="#shorts">Corti</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="sw">
+      <svg class="si" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="sinput" type="text" placeholder="Cerca film, anime…" autocomplete="off"/>
+      <div id="sdrop"></div>
+    </div>
+    <a href="https://t.me/doditech" target="_blank" class="btg">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.17 13.36l-2.965-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.983.2z"/></svg>
+      Supporto
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hbg"></div><div class="hgrid"></div>
+  <div class="hc">
+    <div class="hpill">▶ Tutto parte qui dentro</div>
+    <h1>Premi play.<br/>Guarda <em>subito.</em></h1>
+    <p>Film classici, anime e documentari che <strong>partono direttamente su DoDix</strong>, senza reindirizzamenti. Contenuti legali da YouTube e Archive.org, curati da <strong>Adry Doditech</strong>.</p>
+    <div class="hbtns">
+      <button class="bprimary" onclick="document.getElementById('film').scrollIntoView({behavior:'smooth'})">▶ Vai al catalogo</button>
+      <a href="https://t.me/doditech" target="_blank" class="bsec">✈️ Canale Telegram</a>
+    </div>
+  </div>
+</section>
+
+<!-- TABS -->
+<div class="tabs">
+  <div class="tab on" onclick="showAll(this)">Tutti</div>
+  <div class="tab" onclick="filterGenre(this,'Commedia')">Commedia</div>
+  <div class="tab" onclick="filterGenre(this,'Horror')">Horror</div>
+  <div class="tab" onclick="filterGenre(this,'Fantascienza')">Fantascienza</div>
+  <div class="tab" onclick="filterGenre(this,'Drammatico')">Drammatico</div>
+  <div class="tab" onclick="filterGenre(this,'Anime')">Anime</div>
+  <div class="tab" onclick="filterGenre(this,'Documentario')">Documentari</div>
+  <div class="tab" onclick="filterGenre(this,'Corto')">Corti</div>
+  <div class="tab" onclick="filterGenre(this,'Western')">Western</div>
+  <div class="tab" onclick="filterGenre(this,'Noir')">Noir</div>
+</div>
+
+<!-- FILM -->
+<section class="sec" id="film">
+  <div class="sh"><h2 class="st">Film</h2><span style="font-size:.78rem;color:var(--muted);">▶ Riproduci direttamente</span></div>
+  <div class="grid" id="filmGrid"></div>
+</section>
+
+<!-- ANIME -->
+<section class="sec" id="anime">
+  <div class="sh"><h2 class="st">Anime Classici</h2></div>
+  <div class="grid" id="animeGrid"></div>
+</section>
+
+<!-- TG BANNER -->
+<div class="tgbanner">
+  <div class="tgl">
+    <div class="tgico">✈️</div>
+    <div class="tgtxt">
+      <h3>Unisciti al canale di <strong>Adry Doditech</strong></h3>
+      <p>Nuovi titoli ogni settimana, aggiornamenti e supporto su <strong>@doditech</strong></p>
+    </div>
+  </div>
+  <a href="https://t.me/doditech" target="_blank" class="btgbig">✈️ Unisciti ora</a>
+</div>
+
+<!-- CLASSICI -->
+<section class="sec" id="classici">
+  <div class="sh"><h2 class="st">Classici Muti</h2></div>
+  <div class="grid" id="classiciGrid"></div>
+</section>
+
+<!-- DOCUMENTARI -->
+<section class="sec" id="documentari">
+  <div class="sh"><h2 class="st">Documentari</h2></div>
+  <div class="grid" id="docGrid"></div>
+</section>
+
+<!-- CORTI -->
+<section class="sec" id="shorts">
+  <div class="sh"><h2 class="st">Cortometraggi</h2></div>
+  <div class="grid" id="shortsGrid"></div>
+</section>
+
+<!-- GENERI -->
+<section class="sec">
+  <div class="sh"><h2 class="st">Esplora per Genere</h2></div>
+  <div class="ggrid">
+    <div class="gcard" onclick="filterGenre(null,'Commedia')"><span class="gico">😂</span><span class="gnm">Commedia</span></div>
+    <div class="gcard" onclick="filterGenre(null,'Horror')"><span class="gico">👻</span><span class="gnm">Horror</span></div>
+    <div class="gcard" onclick="filterGenre(null,'Fantascienza')"><span class="gico">🚀</span><span class="gnm">Fantascienza</span></div>
+    <div class="gcard" onclick="filterGenre(null,'Drammatico')"><span class="gico">🎭</span><span class="gnm">Drammatico</span></div>
+    <div class="gcard" onclick="filterGenre(null,'Anime')"><span class="gico">🎌</span><span class="gnm">Anime</span></div>
+    <div class="gcard" onclick="filterGenre(null,'Documentario')"><span class="gico">🌍</span><span class="gnm">Documentari</span></div>
+    <div class="gcard" onclick="filterGenre(null,'Western')"><span class="gico">🤠</span><span class="gnm">Western</span></div>
+    <div class="gcard" onclick="filterGenre(null,'Noir')"><span class="gico">🕵️</span><span class="gnm">Noir</span></div>
+    <div class="gcard" onclick="filterGenre(null,'Corto')"><span class="gico">🎬</span><span class="gnm">Corti</span></div>
+    <div class="gcard" onclick="filterGenre(null,'Storico')"><span class="gico">🏛️</span><span class="gnm">Storico</span></div>
+    <div class="gcard" onclick="showAll(null)"><span class="gico">✨</span><span class="gnm">Tutti</span></div>
+    <div class="gcard" onclick="document.getElementById('shorts').scrollIntoView({behavior:'smooth'})"><span class="gico">🎞️</span><span class="gnm">Classici</span></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="disc">
+    <p>⚠️ <strong>Avviso legale:</strong> DoDix incorpora esclusivamente contenuti di <strong>pubblico dominio</strong> o con licenza libera, tramite player ufficiali di YouTube e Archive.org. Adry Doditech non ospita, carica né distribuisce alcun file video. Per supporto: <a href="https://t.me/doditech" target="_blank">@doditech</a></p>
+  </div>
+  <div class="fg">
+    <div>
+      <a href="#" class="logo"><div class="logo-box">D</div><span class="logo-name">DoDix</span></a>
+      <p class="fbp">Il portale di <strong>Adry Doditech</strong> per lo streaming gratuito e legale. Film classici, anime e documentari che partono direttamente qui, senza reindirizzamenti.</p>
+      <div class="fsoc">
+        <a href="https://t.me/doditech" target="_blank" class="fsb">✈️</a>
+        <a href="#" class="fsb">▶️</a>
+        <a href="#" class="fsb">𝕏</a>
+      </div>
+    </div>
+    <div class="fc"><h4>Sezioni</h4><ul>
+      <li><a href="#film">Film</a></li>
+      <li><a href="#anime">Anime</a></li>
+      <li><a href="#classici">Classici Muti</a></li>
+      <li><a href="#documentari">Documentari</a></li>
+      <li><a href="#shorts">Cortometraggi</a></li>
+    </ul></div>
+    <div class="fc"><h4>Supporto</h4><ul>
+      <li><a href="https://t.me/doditech" target="_blank">Canale Telegram</a></li>
+      <li><a href="https://t.me/doditech" target="_blank">Segnala problema</a></li>
+      <li><a href="https://t.me/doditech" target="_blank">Suggerisci titolo</a></li>
+      <li><a href="#">Privacy Policy</a></li>
+    </ul></div>
+  </div>
+  <div class="fbot">
+    <p>© 2026 <strong>DoDix</strong> by <a href="https://t.me/doditech" target="_blank">Adry Doditech</a></p>
+    <p>Supporto: <a href="https://t.me/doditech" target="_blank">t.me/doditech</a></p>
+  </div>
+</footer>
+
+<!-- PLAYER MODAL -->
+<div id="pm" onclick="if(event.target===this)closePlayer()">
+  <div class="pmbox">
+    <div class="pmhd">
+      <span class="pmtitle" id="pmTitle">Titolo</span>
+      <button class="pmclose" onclick="closePlayer()">✕</button>
+    </div>
+    <div class="pmscreen" id="pmScreen"></div>
+    <div class="pmfoot">
+      <div class="pmtags" id="pmTags"></div>
+      <a href="https://t.me/doditech" target="_blank" class="pmtg">✈️ Supporto @doditech</a>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════
+//  CATALOGO — solo contenuti con embed diretto
+//  type: "yt"  → YouTube embed (player interno)
+//  type: "arc" → Archive.org embed (player interno)
+//  badge: FREE / ITA / SUB
+// ═══════════════════════════════════════════════════════
+const CAT = [
+
+  // ── FILM CLASSICI (YouTube – pubblico dominio, upload ufficiali) ──
+  {id:"yt_chaplin_kid",      title:"Il Monello",              year:1921, genre:"Commedia",   badge:"FREE", emoji:"🎩", type:"yt",  vid:"lMvR4IHvAbk",
+   desc:"Charlie Chaplin adotta un bambino abbandonato per le strade. Un capolavoro del cinema muto."},
+  {id:"yt_chaplin_mod",      title:"Tempi Moderni",           year:1936, genre:"Commedia",   badge:"FREE", emoji:"⚙️", type:"yt",  vid:"GLeDer3LL7o",
+   desc:"Chaplin contro la catena di montaggio industriale. Satira brillante e gag immortali."},
+  {id:"yt_chaplin_circus",   title:"Il Circo",                year:1928, genre:"Commedia",   badge:"FREE", emoji:"🎪", type:"yt",  vid:"9OGFNQTlTNw",
+   desc:"Chaplin finisce per sbaglio in un circo e diventa la star involontaria dello spettacolo."},
+  {id:"yt_chaplin_gold",     title:"La Febbre dell'Oro",      year:1925, genre:"Commedia",   badge:"FREE", emoji:"⛏️", type:"yt",  vid:"62-UD-E0JxE",
+   desc:"Il celebre vagabondo di Chaplin cerca oro in Alaska. Scena leggendaria con il pane-scarpe."},
+  {id:"yt_frank",            title:"Frankenstein",            year:1931, genre:"Horror",     badge:"FREE", emoji:"⚡", type:"yt",  vid:"0vMWuEVH2Xo",
+   desc:"Boris Karloff nel ruolo che ha definito il mito di Frankenstein per il grande schermo."},
+  {id:"yt_dracula",          title:"Dracula",                 year:1931, genre:"Horror",     badge:"FREE", emoji:"🦇", type:"yt",  vid:"T2aGKPiSqhg",
+   desc:"Bela Lugosi è il Conte Dracula. Il film che ha inventato il genere vampire movie moderno."},
+  {id:"yt_ladri",            title:"Ladri di Biciclette",     year:1948, genre:"Drammatico",  badge:"ITA",  emoji:"🚲", type:"yt",  vid:"oSvELBzGGKg",
+   desc:"Capolavoro del neorealismo italiano di Vittorio De Sica. Un operaio cerca la bicicletta rubata per Roma."},
+  {id:"yt_invisible",        title:"L'Uomo Invisibile",       year:1933, genre:"Fantascienza",badge:"FREE", emoji:"👁️", type:"yt",  vid:"KCkx7HsZfM0",
+   desc:"Un chimico scopre il segreto dell'invisibilità, ma il potere lo travolge. Claude Rains."},
+  {id:"yt_mummy",            title:"La Mummia",               year:1932, genre:"Horror",     badge:"FREE", emoji:"🧟", type:"yt",  vid:"2Gy-YGxCPjA",
+   desc:"Boris Karloff è Im-Ho-Tep, la mummia egizia tornata in vita dopo tremila anni."},
+  {id:"yt_lastman",          title:"L'Ultimo Uomo sulla Terra",year:1964,genre:"Horror",     badge:"ITA",  emoji:"☣️", type:"yt",  vid:"qdL_JCBT7Bk",
+   desc:"Vincent Price nell'adattamento del romanzo 'Io sono leggenda'. Pioniere degli zombie film."},
+  {id:"yt_blackmail",        title:"Blackmail",               year:1929, genre:"Noir",       badge:"FREE", emoji:"🔫", type:"yt",  vid:"Ys7uo0X6kek",
+   desc:"Il primo film sonoro di Alfred Hitchcock. Una donna uccide un uomo che voleva violentarla."},
+
+  // ── CLASSICI MUTI (Archive.org embed) ──
+  {id:"arc_metro",           title:"Metropolis",              year:1927, genre:"Fantascienza",badge:"FREE", emoji:"🏙️", type:"arc", vid:"Metropolis_1927",
+   desc:"Fritz Lang. Una città futuristica dove gli operai vivono sottoterra. Un monumento del cinema."},
+  {id:"arc_nosferatu",       title:"Nosferatu",               year:1922, genre:"Horror",     badge:"FREE", emoji:"🧛", type:"arc", vid:"Nosferatu_1922",
+   desc:"Il primo grande film horror della storia. Max Schreck nel ruolo del vampiro originale."},
+  {id:"arc_general",         title:"The General",             year:1926, genre:"Commedia",   badge:"FREE", emoji:"🚂", type:"arc", vid:"TheGeneral_1926",
+   desc:"Buster Keaton al volante di una locomotiva durante la Guerra Civile. Acrobazie leggendarie."},
+  {id:"arc_safety",          title:"Safety Last!",            year:1923, genre:"Commedia",   badge:"FREE", emoji:"🕰️", type:"arc", vid:"SafetyLast_1923",
+   desc:"Harold Lloyd scala un grattacielo aggrappato alle lancette di un orologio. Icona assoluta."},
+  {id:"arc_potk",            title:"La Corazzata Potёmkin",  year:1925, genre:"Storico",    badge:"FREE", emoji:"⚓", type:"arc", vid:"battleship_potemkin",
+   desc:"Ejzenštejn. La rivolta dei marinai russi del 1905. La scalinata di Odessa è eterna."},
+  {id:"arc_caligari",        title:"Il Gabinetto del Dr. Caligari",year:1920,genre:"Horror", badge:"FREE", emoji:"🔮", type:"arc", vid:"TheCabinetOfDrCaligari",
+   desc:"Espressionismo tedesco puro. Scenografie distorte e una storia di follia mozzafiato."},
+  {id:"arc_phantom",         title:"Il Fantasma dell'Opera",  year:1925, genre:"Horror",     badge:"FREE", emoji:"🎭", type:"arc", vid:"ThePhantomoftheOpera_1925",
+   desc:"Lon Chaney nel ruolo del Fantasma. Trucco leggendario. Ambientato nell'Opera di Parigi."},
+  {id:"arc_sunrise",         title:"Sunrise",                 year:1927, genre:"Drammatico",  badge:"FREE", emoji:"🌅", type:"arc", vid:"Sunrise.A.Song.of.Two.Humans.1927",
+   desc:"F.W. Murnau. Vinse l'Oscar. Un contadino tentato di uccidere la moglie dalla donna di città."},
+  {id:"arc_sherlock",        title:"Sherlock Jr.",            year:1924, genre:"Commedia",   badge:"FREE", emoji:"🔍", type:"arc", vid:"SherloJr_1924",
+   desc:"Buster Keaton proiettato letteralmente dentro allo schermo del cinema. Effetti speciali geniali."},
+  {id:"arc_hisfri",          title:"His Girl Friday",         year:1940, genre:"Commedia",   badge:"FREE", emoji:"📰", type:"arc", vid:"HisGirlFriday_1940",
+   desc:"Howard Hawks. La commedia più frenetica di Hollywood con dialoghi a velocità supersonica."},
+  {id:"arc_intol",           title:"Intolerance",             year:1916, genre:"Storico",    badge:"FREE", emoji:"✝️", type:"arc", vid:"Intolerance_1916",
+   desc:"D.W. Griffith racconta quattro epoche storiche legate dal filo dell'intolleranza umana."},
+  {id:"arc_steam",           title:"Steamboat Bill Jr.",      year:1928, genre:"Commedia",   badge:"FREE", emoji:"🚢", type:"arc", vid:"SteamboatBillJr",
+   desc:"Buster Keaton sopravvive a un uragano in scena. Una delle più grandi gag della storia."},
+  {id:"arc_livingdead",      title:"Night of the Living Dead",year:1968, genre:"Horror",     badge:"FREE", emoji:"🧟", type:"arc", vid:"night_of_the_living_dead",
+   desc:"George Romero inventa il moderno zombie movie. Critica sociale mascherata da horror."},
+  {id:"arc_hitchhiker",      title:"The Hitch-Hiker",         year:1953, genre:"Noir",       badge:"FREE", emoji:"🚗", type:"arc", vid:"TheHitch-Hiker",
+   desc:"Film noir di Ida Lupino. Un autostoppista serial killer tiene in ostaggio due amici."},
+
+  // ── ANIME CLASSICI (YouTube – canali ufficiali o pubblico dominio) ──
+  {id:"yt_naruto1",          title:"Naruto – Ep. 1",          year:2002, genre:"Anime",      badge:"SUB",  emoji:"🍥", type:"yt",  vid:"QczGoCmX9kA",
+   desc:"Il primo episodio di Naruto. Il giovane ninja emarginato sogna di diventare Hokage."},
+  {id:"yt_dbz1",             title:"Dragon Ball Z – Ep. 1",   year:1989, genre:"Anime",      badge:"ITA",  emoji:"🐉", type:"yt",  vid:"5NcrbjHPJkc",
+   desc:"Raditz arriva sulla Terra e rivela la vera natura di Goku. Inizia la saga dei Saiyan."},
+  {id:"yt_lupin1",           title:"Lupin III – Ep. 1",       year:1971, genre:"Anime",      badge:"ITA",  emoji:"🎩", type:"yt",  vid:"tbM4tKk-NcA",
+   desc:"Il ladro gentiluomo più famoso del mondo. Primo episodio della serie originale."},
+  {id:"yt_heidi1",           title:"Heidi – Ep. 1",           year:1974, genre:"Anime",      badge:"ITA",  emoji:"⛰️", type:"yt",  vid:"eNLAtAhqkv4",
+   desc:"La bambina delle Alpi svizzere. Ispirato al romanzo di Johanna Spyri. Animazione Isao Takahata."},
+  {id:"yt_mazinga1",         title:"Mazinga Z – Ep. 1",       year:1972, genre:"Anime",      badge:"ITA",  emoji:"🤖", type:"yt",  vid:"XMoAnRBnY3o",
+   desc:"Il robot gigante che ha fatto sognare generazioni di bambini italiani. Go Nagai."},
+  {id:"yt_ladyoscar1",       title:"Lady Oscar – Ep. 1",      year:1979, genre:"Anime",      badge:"ITA",  emoji:"🌹", type:"yt",  vid:"ZBPn8_vqDNI",
+   desc:"Oscar François de Jarjayes comandante della guardia reale nella Francia pre-rivoluzionaria."},
+  {id:"yt_goldrake1",        title:"Goldrake – Ep. 1",        year:1975, genre:"Anime",      badge:"ITA",  emoji:"🛸", type:"yt",  vid:"bGVotR8ntdU",
+   desc:"Actarus e il robot UFO Robot Grendizer contro le forze di Vega. Il mecha anime per eccellenza."},
+  {id:"yt_conan1",           title:"Conan il Ragazzo del Futuro – Ep.1",year:1978,genre:"Anime",badge:"ITA",emoji:"🌊",type:"yt",vid:"XrBLGxzH_oI",
+   desc:"Il primo capolavoro di Hayao Miyazaki. Un ragazzo in un mondo post-apocalittico."},
+
+  // ── DOCUMENTARI (YouTube – licenza libera / pubblico dominio) ──
+  {id:"yt_doc_ww2",          title:"WWII – La Seconda Guerra Mondiale",year:1943,genre:"Documentario",badge:"FREE",emoji:"🎖️",type:"yt",vid:"f5Wm-rBmYEk",
+   desc:"Documentario storico sulla Seconda Guerra Mondiale. Filmati d'epoca originali."},
+  {id:"yt_doc_moon",         title:"Apollo 11 – Missione Luna",year:1969,genre:"Documentario",badge:"FREE",emoji:"🌕",type:"yt",vid:"S9HdPi9Ikhk",
+   desc:"Filmati originali NASA della missione Apollo 11. Il primo sbarco sulla luna nel 1969."},
+  {id:"yt_doc_nature",       title:"Nature – Documentario Natura",year:2020,genre:"Documentario",badge:"FREE",emoji:"🌿",type:"yt",vid:"LfKLV6rmLxE",
+   desc:"Documentario sulla natura e la fauna selvatica. Immagini mozzafiato da tutto il mondo."},
+  {id:"arc_doc_city",        title:"Man with a Movie Camera",year:1929,genre:"Documentario", badge:"FREE",emoji:"🎥",type:"arc",vid:"man_with_a_movie_camera",
+   desc:"Dziga Vertov. Un giorno di vita a Odessa. Considerato il più grande documentario della storia."},
+
+  // ── CORTOMETRAGGI (Archive.org) ──
+  {id:"arc_steamboat",       title:"Steamboat Willie",        year:1928, genre:"Corto",      badge:"FREE", emoji:"🎵", type:"arc", vid:"steamboat_willie_1928",
+   desc:"Il primo cartone con Mickey Mouse. Primo film animato con audio sincronizzato."},
+  {id:"arc_trip_moon",       title:"Viaggio nella Luna",      year:1902, genre:"Corto",      badge:"FREE", emoji:"🌙", type:"arc", vid:"A_Trip_to_the_Moon_1902",
+   desc:"Georges Méliès. Il primo film di fantascienza della storia. 14 minuti di pura magia."},
+  {id:"arc_arrival",         title:"L'Arrivo del Treno",      year:1896, genre:"Corto",      badge:"FREE", emoji:"🚂", type:"arc", vid:"The_Arrival_of_a_Train_at_La_Ciotat",
+   desc:"Fratelli Lumière 1896. Il primo film proiettato in pubblico che fece scappare gli spettatori."},
+  {id:"yt_buster_boat",      title:"Buster Keaton – One Week", year:1920, genre:"Corto",     badge:"FREE", emoji:"🏠", type:"yt",  vid:"7tApBB0GVXM",
+   desc:"Buster Keaton costruisce una casa prefabbricata con istruzioni sbagliate. Gag leggendarie."},
+  {id:"yt_westfront",        title:"A Day at the Races – Marx Bros.",year:1937,genre:"Commedia",badge:"FREE",emoji:"🐴",type:"yt",vid:"KJ_4SvOHZUY",
+   desc:"I Fratelli Marx in una delle loro commedie più amate. Gare di cavalli e caos totale."},
+  {id:"arc_dfire",           title:"Rescued by Rover",        year:1905, genre:"Corto",      badge:"FREE", emoji:"🐕", type:"arc", vid:"rescued_by_rover",
+   desc:"Uno dei primi narrative film della storia. Un cane salva una bambina rapita. Cecil Hepworth."},
+
+];
+
+// ─────────────────────────────────────
+// SRC LABELS / COLORS
+// ─────────────────────────────────────
+const SL = {yt:"YouTube", arc:"Archive.org"};
+const SC = {yt:"sy", arc:"sa"};
+const BC = {FREE:"bfree", ITA:"bita", SUB:"bsub"};
+
+// ─────────────────────────────────────
+// BUILD CARD HTML
+// ─────────────────────────────────────
+function mkCard(item){
+  const d = encodeURIComponent(JSON.stringify(item));
+  return `<div class="card" onclick='playItem(decodeAndParse(this.dataset.d))' data-d="${d}">
+    <span class="cbadge ${BC[item.badge]||'bfree'}">${item.badge}</span>
+    <span class="csrc ${SC[item.type]||''}">${SL[item.type]||''}</span>
+    <div class="cimg"><span class="ce">${item.emoji}</span><span class="ct">${item.title}</span></div>
+    <div class="covr">
+      <div class="cplay"><svg width="11" height="13" viewBox="0 0 11 13" fill="white"><polygon points="0,0 11,6.5 0,13"/></svg></div>
+      <div class="covr-bot">
+        <div class="covr-ttl">${item.title}</div>
+        <div class="covr-meta"><span>${item.year}</span><span>·</span><span style="color:var(--gold)">⭐${item.rating||'—'}</span></div>
+      </div>
+    </div>
+    <div class="cbot"><div class="cb-t">${item.title}</div><div class="cb-y">${item.year}</div></div>
+  </div>`;
+}
+function decodeAndParse(s){return JSON.parse(decodeURIComponent(s));}
+
+// ─────────────────────────────────────
+// POPULATE SECTIONS
+// ─────────────────────────────────────
+const filmItems      = CAT.filter(i=>['Commedia','Horror','Fantascienza','Drammatico','Noir','Storico','Western'].includes(i.genre));
+const animeItems     = CAT.filter(i=>i.genre==='Anime');
+const classiciItems  = CAT.filter(i=>i.year<1940 && i.genre!=='Anime' && i.genre!=='Documentario' && i.genre!=='Corto');
+const docItems       = CAT.filter(i=>i.genre==='Documentario');
+const shortsItems    = CAT.filter(i=>i.genre==='Corto');
+
+document.getElementById('filmGrid').innerHTML     = filmItems.map(mkCard).join('');
+document.getElementById('animeGrid').innerHTML    = animeItems.map(mkCard).join('');
+document.getElementById('classiciGrid').innerHTML = classiciItems.map(mkCard).join('');
+document.getElementById('docGrid').innerHTML      = docItems.map(mkCard).join('');
+document.getElementById('shortsGrid').innerHTML   = shortsItems.map(mkCard).join('');
+
+// ─────────────────────────────────────
+// PLAY ITEM
+// ─────────────────────────────────────
+function playItem(item){
+  document.getElementById('pmTitle').textContent = item.title;
+  const screen = document.getElementById('pmScreen');
+
+  // Build embed URL
+  let src = '';
+  if(item.type === 'yt'){
+    src = `https://www.youtube-nocookie.com/embed/${item.vid}?autoplay=1&rel=0&modestbranding=1&color=white`;
+  } else if(item.type === 'arc'){
+    src = `https://archive.org/embed/${item.vid}?autoplay=1`;
+  }
+
+  screen.innerHTML = `<iframe src="${src}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="eager"></iframe>`;
+
+  // Tags
+  document.getElementById('pmTags').innerHTML = `
+    <span class="ptag ${SC[item.type]||''}" style="padding:4px 10px;border-radius:6px;font-size:.7rem;font-weight:800;">${SL[item.type]||''}</span>
+    <span class="ptag" style="background:rgba(255,255,255,.07);padding:4px 10px;border-radius:6px;font-size:.7rem;">${item.year} · ${item.genre}</span>
+    <span class="ptag ${BC[item.badge]||'bfree'}" style="padding:4px 10px;border-radius:6px;font-size:.7rem;">${item.badge}</span>
+    <span style="font-size:.75rem;color:var(--muted);padding:4px 6px;font-style:italic;">${item.desc||''}</span>`;
+
+  document.getElementById('pm').classList.add('open');
+}
+
+function closePlayer(){
+  document.getElementById('pm').classList.remove('open');
+  document.getElementById('pmScreen').innerHTML = ''; // stop video
+}
+document.addEventListener('keydown', e=>{ if(e.key==='Escape') closePlayer(); });
+
+// ─────────────────────────────────────
+// FILTER BY GENRE (tabs + genre cards)
+// ─────────────────────────────────────
+function filterGenre(btn, genre){
+  // Update tabs
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  if(btn) btn.classList.add('on');
+  // Filter all sections
+  const f = CAT.filter(i=>i.genre===genre);
+  document.getElementById('filmGrid').innerHTML     = f.filter(i=>!['Anime','Documentario','Corto'].includes(i.genre)).map(mkCard).join('') || filmItems.map(mkCard).join('');
+  document.getElementById('animeGrid').innerHTML    = f.filter(i=>i.genre==='Anime').map(mkCard).join('') || '';
+  document.getElementById('classiciGrid').innerHTML = f.filter(i=>i.year<1940&&!['Anime','Documentario','Corto'].includes(i.genre)).map(mkCard).join('') || '';
+  document.getElementById('docGrid').innerHTML      = f.filter(i=>i.genre==='Documentario').map(mkCard).join('') || '';
+  document.getElementById('shortsGrid').innerHTML   = f.filter(i=>i.genre==='Corto').map(mkCard).join('') || '';
+  // Show all results in film grid
+  document.getElementById('filmGrid').innerHTML = f.map(mkCard).join('') || `<p style="color:var(--muted);padding:20px;grid-column:1/-1">Nessun titolo per questo genere al momento.</p>`;
+  document.getElementById('film').scrollIntoView({behavior:'smooth'});
+}
+
+function showAll(btn){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));
+  if(btn) btn.classList.add('on');
+  else document.querySelector('.tab').classList.add('on');
+  document.getElementById('filmGrid').innerHTML     = filmItems.map(mkCard).join('');
+  document.getElementById('animeGrid').innerHTML    = animeItems.map(mkCard).join('');
+  document.getElementById('classiciGrid').innerHTML = classiciItems.map(mkCard).join('');
+  document.getElementById('docGrid').innerHTML      = docItems.map(mkCard).join('');
+  document.getElementById('shortsGrid').innerHTML   = shortsItems.map(mkCard).join('');
+}
+
+// ─────────────────────────────────────
+// LIVE SEARCH
+// ─────────────────────────────────────
+const sinput = document.getElementById('sinput');
+const sdrop  = document.getElementById('sdrop');
+
+sinput.addEventListener('input', function(){
+  const q = this.value.trim().toLowerCase();
+  if(q.length < 2){ sdrop.classList.remove('open'); return; }
+  const res = CAT.filter(i =>
+    i.title.toLowerCase().includes(q) ||
+    i.genre.toLowerCase().includes(q) ||
+    String(i.year).includes(q)
+  );
+  if(!res.length){
+    sdrop.innerHTML = `<div class="sd-empty">Nessun risultato per "<strong>${q}</strong>"</div>`;
+  } else {
+    sdrop.innerHTML = res.slice(0,9).map(i=>{
+      const d = encodeURIComponent(JSON.stringify(i));
+      return `<div class="sd-row" onclick='playItem(decodeAndParse(this.dataset.d));sdrop.classList.remove("open");sinput.value=""' data-d="${d}">
+        <div class="sd-em">${i.emoji}</div>
+        <div class="sd-inf">
+          <div class="sd-ttl">${i.title}</div>
+          <div class="sd-sub">${i.year} · ${i.genre}</div>
+        </div>
+        <span class="sd-src ${SC[i.type]||''}">${SL[i.type]||''}</span>
+      </div>`;
+    }).join('');
+  }
+  sdrop.classList.add('open');
+});
+
+document.addEventListener('click', e=>{
+  if(!document.querySelector('.sw').contains(e.target)) sdrop.classList.remove('open');
+});
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+</script>
+</body>
+</html>
